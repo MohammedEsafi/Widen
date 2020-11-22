@@ -1,0 +1,11 @@
+{
+	"manifest_version": 2,
+	"name": "Widen — Get More Instagram Followers",
+	"version": "1.0",
+	"description": "Widen helps you follow all of someone's followers, followings, commenters, or likers. Grow your Instagram today!",
+	"permissions": ["contextMenus"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	}
+}
