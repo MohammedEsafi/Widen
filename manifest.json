@@ -3,12 +3,12 @@
 	"name": "Widen — Get More Instagram Followers",
 	"version": "1.0",
 	"description": "Widen helps you follow all of someone's followers, followings, commenters, or likers. Grow your Instagram today!",
-	"permissions": ["identity", "tabs", "https://www.instagram.com/*"],
+	"permissions": ["alarms", "tabs", "https://www.instagram.com/*"],
 	"browser_action": {
-		"default_popup": "popup/index.html"
+		"default_popup": "authentication/index.html"
 	},
 	"background": {
-		"page": "handlers/background.html",
+		"page": "background.html",
 		"persistent": false
   },
 	"content_security_policy": "script-src 'self' https://cdn.firebase.com https://apis.google.com https://www.gstatic.com; object-src 'self'"
