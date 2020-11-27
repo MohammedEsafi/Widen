@@ -5,7 +5,7 @@
 	"description": "Widen helps you follow all of someone's followers, followings, commenters, or likers. Grow your Instagram today!",
 	"permissions": ["alarms", "tabs", "https://www.instagram.com/*"],
 	"browser_action": {
-		"default_popup": "authentication/index.html"
+		"default_popup": "login/index.html"
 	},
 	"background": {
 		"page": "background.html",

@@ -14,9 +14,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       const user = firebase.auth().currentUser;
 
 		if (user)
-			sendResponse({ status: "success", datum: user });
+			sendResponse({ status: "success", response: user });
 		else
 			sendResponse({ status: "no-auth" });
+
+		return true;
 	}
 	
 	if (request.message === 'logout')
@@ -28,29 +30,55 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			.catch((error) => {
 				sendResponse({ status: "error", message: error });
 			});
+
+		return true;
 	}
 
    if (request.message === "login") {
-      if (request.method === "email") {
-         firebase.auth().signInWithEmailAndPassword(request.email, request.password)
+      if (request.method === "sign_up") {
+         firebase.auth().createUserWithEmailAndPassword(request.email, request.password)
             .then((result) => {
-               sendResponse({ status: "success", datum: result.user });
+					const emailSent = false;
+
+					result.user.sendEmailVerification()
+						.then(() => {
+							emailSent = true;
+						});
+					
+               sendResponse({ status: "success", response: { ...result.user, emailSent } });
             })
             .catch((error) => {
-               sendResponse({ status: "error", message: error });
-            });
-      }
+					sendResponse({ status: "error", message: error });
+				});
+			
+			return true;
+		}
+		
+		if (request.method === "sign_in")
+		{
+			firebase.auth().signInWithEmailAndPassword(request.email, request.password)
+				.then((result) => {
+					sendResponse({ status: "success", response: result.user });
+				})
+				.catch((error) => {
+					sendResponse({ status: "error", message: error });
+				});
+
+			return true;
+		}
 
       if (request.method === "google") {
          const provider = new firebase.auth.GoogleAuthProvider();
 
          firebase.auth().signInWithPopup(provider)
             .then((result) => {
-               sendResponse({ status: "success", datum: result.user });
+               sendResponse({ status: "success", response: result.user });
             })
             .catch((error) => {
                sendResponse({ status: "error", message: error });
-            });
+				});
+				
+			return true;
 		}
 		
 		if (request.method === "facebook") {
@@ -58,11 +86,25 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
          firebase.auth().signInWithPopup(provider)
             .then((result) => {
-               sendResponse({ status: "success", datum: result.user });
+               sendResponse({ status: "success", response: result.user });
             })
             .catch((error) => {
                sendResponse({ status: "error", message: error });
-            });
+				});
+				
+			return true;
       }
-   }
+	}
+	
+	if (request.message === "reset") {
+		firebase.auth().sendPasswordResetEmail(request.email)
+			.then(() => {
+				sendResponse({ status: "success" });
+			})
+			.catch((error) => {
+				sendResponse({ status: "error", message: error });
+			});
+
+		return true;
+	}
 });

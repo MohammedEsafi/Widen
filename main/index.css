@@ -1,4 +1,23 @@
+/**
+ ** General
+ **/
+
+* {
+	font-family: 'Rubik', sans-serif;
+}
+
 body {
-   min-width: 300px;
-   min-height: 300px;
+   min-width: 350px;
+	min-height: 600px;
+	margin: 0;
+	padding: 0;
+}
+
+.root {
+	padding: 30px;
+}
+
+.column-flex {
+	display: flex;
+	flex-direction: column;
 }

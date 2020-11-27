@@ -8,7 +8,7 @@
 
 body {
    min-width: 350px;
-	min-height: 350px;
+	min-height: 600px;
 	margin: 0;
 	padding: 0;
 }
@@ -30,8 +30,12 @@ button:focus, button:active {
 	outline: none;
 }
 
-p {
+a:active, a:focus, a:visited, p {
 	color: #3d3d4e;
+}
+
+a {
+	text-decoration: none;
 }
 
 /**
@@ -144,4 +148,22 @@ form > button {
 	position: relative;
 	color: white;
 	background-color: #2b7af1;
+}
+
+/**
+ ** Footer
+ **/
+
+.footer {
+	margin-top: 25px;
+}
+
+.toggle {
+	font-size: 13px;
+	margin: 0;
+	text-align: center;
+}
+
+.toggle > a {
+	color: #2b7af1;
 }

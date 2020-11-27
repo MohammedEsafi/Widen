@@ -1,0 +1,179 @@
+/**
+ ** General
+ **/
+
+* {
+	font-family: 'Rubik', sans-serif;
+}
+
+body {
+   min-width: 350px;
+	min-height: 600px;
+	margin: 0;
+	padding: 0;
+}
+
+.root {
+	padding: 30px;
+}
+
+.column-flex {
+	display: flex;
+	flex-direction: column;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:focus, button:active {
+	outline: none;
+}
+
+a:active, a:focus, a:visited, p {
+	color: #3d3d4e;
+}
+
+a {
+	text-decoration: none;
+}
+
+/**
+ ** Login Method
+ **/
+
+.auth-method > button {
+	border-radius: 25px;
+	padding: 15px;
+	border: none;
+	position: relative;
+}
+
+.auth-method > button:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+#google-auth {
+	color: #3d3d4e;
+	background-color: white;
+	border: 1px solid rgba(61, 61, 78, 0.1);
+}
+
+#google-auth > i {
+	background-color: #e33f3f;
+	color: white;
+}
+
+#facebook-auth {
+	color: #3d3d4e;
+	background-color: white;
+	border: 1px solid rgba(61, 61, 78, 0.1);
+}
+
+#facebook-auth > i {
+	background-color: #2b7af1;
+	color: white;
+}
+
+#apple-auth {
+	color: #3d3d4e;
+	background-color: white;
+	border: 1px solid rgba(61, 61, 78, 0.1);
+}
+
+#apple-auth > i {
+	color: white;
+	background-color: #000000;
+}
+
+.auth-method > button > i {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 10px;
+	left: 10px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+}
+
+/**
+ ** Separator
+ **/
+
+.separator {
+	padding: 25px 0;
+	color: #3d3d4e;
+	text-align: center;
+	position: relative;
+}
+
+.separator > span {
+	background-color: white;
+	padding: 0 10px;
+}
+
+.separator > span::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-100%);
+	width: 100%;
+	height: 1px;
+	background-color: rgba(61, 61, 78, 0.1);
+	z-index: -1;
+}
+
+/**
+ ** Form
+ **/
+
+form > input {
+	border-radius: 25px;
+	padding: 15px;
+	border: 1px solid rgba(61, 61, 78, 0.3);
+	margin-bottom: 15px;
+}
+
+form > input:focus, form > input:active {
+	outline: none;
+}
+
+form > button {
+	border-radius: 25px;
+	padding: 15px;
+	border: none;
+	position: relative;
+	color: white;
+	background-color: #2b7af1;
+}
+
+/**
+ ** Footer
+ **/
+
+.footer {
+	margin-top: 25px;
+}
+
+.forgot {
+	font-size: 13px;
+	text-align: center;
+}
+
+.forgot:hover {
+	color: #3d3d4e;
+}
+
+.toggle {
+	font-size: 13px;
+	margin: 0;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.toggle > a {
+	color: #2b7af1;
+}

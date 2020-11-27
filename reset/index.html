@@ -12,7 +12,20 @@
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div class="root column-flex">
-			<button id='logout'>Logout</button>
+			<header>
+				<h1>Forgot your password?</h1>
+				<p class="description" id="description">To reset your password, please enter the email address of your Todoist account.</p>
+			</header>
+			<form class="column-flex" id="form">
+				<input type="email" name="email" id="email" placeholder="Email Address" required>
+				<button type="submit">Reset my password</button>
+			</form>
+			<span class="separator"></span>
+			<div class="footer column-flex">
+				<p class="toggle">
+					<a href id="to_login">Go to Log In</a>
+				</p>
+			</div>
 		</div>
 		<script src="index.js"></script>
 	</body>
