@@ -13,11 +13,90 @@ body {
 	padding: 0;
 }
 
-.root {
-	padding: 30px;
-}
-
-.column-flex {
+.column {
 	display: flex;
 	flex-direction: column;
+}
+
+.content {
+	padding: 15px;
+	align-items: center;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:focus, button:active {
+	outline: none;
+}
+
+p, h4 {
+	color: #3d3d4e;
+}
+
+/**
+ **  Toggle's
+ **/
+
+.actions .container {
+	width: 100%;
+	display: flex;
+}
+
+.actions .container > button > span {
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.actions > .container > .main {
+	border-radius: 25px;
+	border: 1px solid rgba(61, 61, 78, 0.1);
+	padding: 15px;
+	position: relative;
+	color: white;
+	flex: 1;
+}
+
+.actions > .container > .main:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+.actions > .container > .main > i {
+	color: white;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 10px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+}
+
+.actions > .container > button > .icon {
+	background-color: #e33f3f;
+	left: 10px;
+}
+
+.actions > .container > .settings {
+	right: 10px;
+	outline: none;
+	border-radius: 50%;
+	width: 47px;
+	height: 47px;
+	margin-left: 15px;
+	border: 1px solid rgba(61, 61, 78, 0.1);
+}
+
+.actions > .container > .settings > i {
+	color: white;
+}
+
+.follow-color {
+	background-color: #0095f6;
+}
+
+.unfollow-color {
+	background-color: #ed4956;
 }

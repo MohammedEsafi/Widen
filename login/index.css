@@ -17,7 +17,7 @@ body {
 	padding: 30px;
 }
 
-.column-flex {
+.column {
 	display: flex;
 	flex-direction: column;
 }

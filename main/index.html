@@ -11,8 +11,28 @@
 	</head>
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
-		<div class="root column-flex">
-			<button id='logout'>Logout</button>
+		<div class="root column">
+			<header></header>
+			<div class="content column actions">
+				<div class="container">
+					<button class="main follow-color" id='follow'>
+						<i class="fab fa-google icon"></i>
+						<span>Follow</span>
+					</button>
+					<button class="settings follow-color" id="follow-settings" >
+						<i class="fas fa-cog"></i>
+					</button>
+				</div>
+				<div class="container">
+					<button class="main unfollow-color" id='unfollow'>
+						<i class="fab fa-google icon"></i>
+						<span>Unfollow</span>
+					</button>
+					<button class="settings unfollow-color" id="unfollow-settings">
+						<i class="fas fa-cog"></i>
+					</button>
+				</div>
+			</div>
 		</div>
 		<script src="index.js"></script>
 	</body>
