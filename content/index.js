@@ -1,44 +1,98 @@
-// Utils
-
-const sleep = (milliseconds) => {
-	return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
-
 // Likers
 
 var Likers = document.querySelector("body > div.RnEpo.Yx5HN > div > div > div.Igw0E.IwRSH.eGOV_.vwCYk.i0EQd > div");
 
 if (Likers) {
-	(async () => {
-		var index = 0;
-	
+	(async () => {	
+		let breakpoint = null;
+
 		while (true)
 		{
-			var container = document.querySelector("body > div.RnEpo.Yx5HN > div > div > div.Igw0E.IwRSH.eGOV_.vwCYk.i0EQd > div > div");
-		
-			var children = container.children;
-
-			alert("length: " + children.length)
-		
-			if (children.length === index)
-				break ;
-		
-			while (index < children.length)
-			{
-				alert(index);
-
-				let button = children[index].querySelector('div.Igw0E.rBNOH.YBx95.ybXk5._4EzTm.soMvl > button');
+			let container = document.querySelector("body > div.RnEpo.Yx5HN > div > div > div.Igw0E.IwRSH.eGOV_.vwCYk.i0EQd > div > div");
 			
-				Likers.scroll({top: children[index].offsetTop, behavior: 'smooth'});
+			let lastUser = container.children[container.children.length - 1].querySelector('div > span > a').innerText;
 
-				if (button.innerText === "Follow")
+			if (breakpoint === lastUser)
+				break ;
+			else
+				breakpoint = lastUser;
+
+			for (const node of Array.from(container.children)) {
+				let button = node.querySelector('div.Igw0E.rBNOH.YBx95.ybXk5._4EzTm.soMvl > button');
+
+				if (button?.innerText === "Follow")
 				{
+					Likers.scroll({top: node.offsetTop, behavior: 'smooth'});
 					button.click();
-					await sleep(4000);
+					await sleep(6000);
 				}
-					
+			};
+		};
+	})();
+}
+
+// Followers
+
+var Followers = document.querySelector("body > div.RnEpo.Yx5HN > div > div > div.isgrP");
+
+if (Followers) {
+	(async () => {	
+		let index = 0;
+
+		while (true)
+		{
+			let container = document.querySelector("body > div.RnEpo.Yx5HN > div > div > div.isgrP > ul > div");
+			
+			if (index === container.children.length)
+				break ;
+
+			while (index < container.children.length) {
+				let node = container.children[index];
+
+				let button = node.querySelector('div > div > button');
+				
+				if (button?.innerText === "Follow")
+				{
+					Followers.scroll({top: node.offsetTop, behavior: 'smooth'});
+					button.click();
+					await sleep(6000);
+				}
+
 				++index;
-			}
-		}
+			};
+		};
+	})();
+}
+
+// Following
+
+var Following = document.querySelector("body > div.RnEpo.Yx5HN > div > div > div.isgrP");
+
+if (Following) {
+	(async () => {	
+		let index = 0;
+
+		while (true)
+		{
+			let container = document.querySelector("body > div.RnEpo.Yx5HN > div > div > div.isgrP > ul > div");
+			
+			if (index === container.children.length)
+				break ;
+
+			while (index < container.children.length) {
+				let node = container.children[index];
+
+				let button = node.querySelector('div > div > button');
+				
+				if (button?.innerText === "Follow")
+				{
+					Following.scroll({top: node.offsetTop, behavior: 'smooth'});
+					button.click();
+					await sleep(6000);
+				}
+
+				++index;
+			};
+		};
 	})();
 }

@@ -1,4 +1,5 @@
 // Initialize Firebase
+
 const config = {
    apiKey: "AIzaSyCxsjdNrQT2kwiZPoNkDVYJo2JgBcXudAA",
    authDomain: "widen-app.firebaseapp.com",
@@ -9,7 +10,12 @@ const config = {
 
 firebase.initializeApp(config);
 
+// Listener
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+
+	// Check authentication
+
    if (request.message === "checkAuth") {
       const user = firebase.auth().currentUser;
 
@@ -20,7 +26,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 		return true;
 	}
-	
+
+	// Logout
+
 	if (request.message === 'logout')
 	{
 		firebase.auth().signOut()
@@ -33,6 +41,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 		return true;
 	}
+
+	// Authentication with Email & password
 
    if (request.message === "login") {
       if (request.method === "sign_up") {
@@ -67,6 +77,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			return true;
 		}
 
+		// Google authentication
+
       if (request.method === "google") {
          const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -80,6 +92,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 				
 			return true;
 		}
+
+		// Facebook authentication
 		
 		if (request.method === "facebook") {
          const provider = new firebase.auth.FacebookAuthProvider();
@@ -96,6 +110,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       }
 	}
 	
+	// Reset password
+
 	if (request.message === "reset") {
 		firebase.auth().sendPasswordResetEmail(request.email)
 			.then(() => {
@@ -106,5 +122,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			});
 
 		return true;
+	}
+
+	// Execute content Script
+
+	if (request.message === "executeScript") {
+		chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+			let currentTab = tabs[0];
+			if (currentTab.url.includes("www.instagram.com")) {
+				chrome.tabs.executeScript(currentTab.id, { file: "content/utils.js" });
+				chrome.tabs.executeScript(currentTab.id, { file: "content/index.js" });
+			}
+		});
 	}
 });

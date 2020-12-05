@@ -5,3 +5,7 @@ document.getElementById("logout").addEventListener("click", () => {
       }
    });
 });
+
+document.getElementById("follow").addEventListener("click", (event) => {
+	chrome.runtime.sendMessage({ message: "executeScript" });
+});

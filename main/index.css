@@ -8,7 +8,7 @@
 
 body {
    min-width: 350px;
-	min-height: 600px;
+	min-height: 350px;
 	margin: 0;
 	padding: 0;
 }
@@ -78,4 +78,9 @@ p, h4 {
 
 .follow-color {
 	background-color: #0095f6;
+}
+
+.logout {
+	background-color: brown;
+	margin-top: 15px;
 }
