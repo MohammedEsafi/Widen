@@ -1,11 +1,11 @@
 // Initialize Firebase
 
 const config = {
-   apiKey: "AIzaSyCxsjdNrQT2kwiZPoNkDVYJo2JgBcXudAA",
-   authDomain: "widen-app.firebaseapp.com",
-   databaseURL: "https://widen-app.firebaseio.com",
-   projectId: "widen-app",
-   storageBucket: "widen-app.appspot.com",
+   apiKey: "",
+   authDomain: "",
+   databaseURL: "",
+   projectId: "",
+   storageBucket: "",
 };
 
 firebase.initializeApp(config);
