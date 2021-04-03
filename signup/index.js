@@ -1,25 +1,25 @@
 document.getElementById("google-auth").addEventListener("click", () => {
-   chrome.runtime.sendMessage({ message: "login", method: "google" }, (response) => {
-      if (response.status === "success") {
-         window.location.replace("../main/index.html");
-      }
-   });
+	chrome.runtime.sendMessage({ message: "login", method: "google" }, (response) => {
+		if (response.status === "success") {
+			window.location.replace("../main/index.html");
+		}
+	});
 });
 
 document.getElementById("facebook-auth").addEventListener("click", () => {
-   chrome.runtime.sendMessage({ message: "login", method: "facebook" }, (response) => {
-      if (response.status === "success") {
-         window.location.replace("../main/index.html");
-      }
-   });
+	chrome.runtime.sendMessage({ message: "login", method: "facebook" }, (response) => {
+		if (response.status === "success") {
+			window.location.replace("../main/index.html");
+		}
+	});
 });
 
 document.getElementById("apple-auth").addEventListener("click", () => {
-   chrome.runtime.sendMessage({ message: "login", method: "apple" }, (response) => {
-      if (response.status === "success") {
-         window.location.replace("../main/index.html");
-      }
-   });
+	chrome.runtime.sendMessage({ message: "login", method: "apple" }, (response) => {
+		if (response.status === "success") {
+			window.location.replace("../main/index.html");
+		}
+	});
 });
 
 (() => {
@@ -46,7 +46,7 @@ document.getElementById("apple-auth").addEventListener("click", () => {
 
 		const datum = { email: emailField.value, password: passwordField.value };
 
-		chrome.runtime.sendMessage({ message: "login", method: "sign_up", ...datum }, (response) => {			
+		chrome.runtime.sendMessage({ message: "login", method: "sign_up", ...datum }, (response) => {
 			if (response.status === "success") {
 				window.location.replace("../main/index.html");
 			} else {

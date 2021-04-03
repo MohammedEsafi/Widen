@@ -1,11 +1,11 @@
 // Initialize Firebase
 
 const config = {
-   apiKey: "",
-   authDomain: "",
-   databaseURL: "",
-   projectId: "",
-   storageBucket: "",
+	apiKey: "",
+	authDomain: "",
+	databaseURL: "",
+	projectId: "",
+	storageBucket: "",
 };
 
 firebase.initializeApp(config);
@@ -16,8 +16,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 	// Check authentication
 
-   if (request.message === "checkAuth") {
-      const user = firebase.auth().currentUser;
+	if (request.message === "checkAuth") {
+		const user = firebase.auth().currentUser;
 
 		if (user)
 			sendResponse({ status: "success", response: user });
@@ -29,8 +29,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 	// Logout
 
-	if (request.message === 'logout')
-	{
+	if (request.message === 'logout') {
 		firebase.auth().signOut()
 			.then(() => {
 				sendResponse({ status: "success" });
@@ -44,28 +43,27 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 	// Authentication with Email & password
 
-   if (request.message === "login") {
-      if (request.method === "sign_up") {
-         firebase.auth().createUserWithEmailAndPassword(request.email, request.password)
-            .then((result) => {
+	if (request.message === "login") {
+		if (request.method === "sign_up") {
+			firebase.auth().createUserWithEmailAndPassword(request.email, request.password)
+				.then((result) => {
 					const emailSent = false;
 
 					result.user.sendEmailVerification()
 						.then(() => {
 							emailSent = true;
 						});
-					
-               sendResponse({ status: "success", response: { ...result.user, emailSent } });
-            })
-            .catch((error) => {
+
+					sendResponse({ status: "success", response: { ...result.user, emailSent } });
+				})
+				.catch((error) => {
 					sendResponse({ status: "error", message: error });
 				});
-			
+
 			return true;
 		}
-		
-		if (request.method === "sign_in")
-		{
+
+		if (request.method === "sign_in") {
 			firebase.auth().signInWithEmailAndPassword(request.email, request.password)
 				.then((result) => {
 					sendResponse({ status: "success", response: result.user });
@@ -79,37 +77,37 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 		// Google authentication
 
-      if (request.method === "google") {
-         const provider = new firebase.auth.GoogleAuthProvider();
+		if (request.method === "google") {
+			const provider = new firebase.auth.GoogleAuthProvider();
 
-         firebase.auth().signInWithPopup(provider)
-            .then((result) => {
-               sendResponse({ status: "success", response: result.user });
-            })
-            .catch((error) => {
-               sendResponse({ status: "error", message: error });
+			firebase.auth().signInWithPopup(provider)
+				.then((result) => {
+					sendResponse({ status: "success", response: result.user });
+				})
+				.catch((error) => {
+					sendResponse({ status: "error", message: error });
 				});
-				
+
 			return true;
 		}
 
 		// Facebook authentication
-		
-		if (request.method === "facebook") {
-         const provider = new firebase.auth.FacebookAuthProvider();
 
-         firebase.auth().signInWithPopup(provider)
-            .then((result) => {
-               sendResponse({ status: "success", response: result.user });
-            })
-            .catch((error) => {
-               sendResponse({ status: "error", message: error });
+		if (request.method === "facebook") {
+			const provider = new firebase.auth.FacebookAuthProvider();
+
+			firebase.auth().signInWithPopup(provider)
+				.then((result) => {
+					sendResponse({ status: "success", response: result.user });
+				})
+				.catch((error) => {
+					sendResponse({ status: "error", message: error });
 				});
-				
+
 			return true;
-      }
+		}
 	}
-	
+
 	// Reset password
 
 	if (request.message === "reset") {
