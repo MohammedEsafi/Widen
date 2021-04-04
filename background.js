@@ -3,16 +3,14 @@
 const config = {
 	apiKey: "",
 	authDomain: "",
-	databaseURL: "",
-	projectId: "",
-	storageBucket: "",
+	projectId: ""
 };
 
 firebase.initializeApp(config);
 
 // Listener
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
 
 	// Check authentication
 
