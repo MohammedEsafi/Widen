@@ -1,6 +1,7 @@
 // Initialize Firebase
 
 const config = {
+	// TODO: Replace with your project's config object
 	apiKey: "",
 	authDomain: "",
 	projectId: ""
