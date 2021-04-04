@@ -8,7 +8,12 @@
 		"https://www.instagram.com/*"
 	],
 	"browser_action": {
-		"default_popup": "login/index.html"
+		"default_popup": "login/index.html",
+		"icons": {
+			"16": "./images/16x16.png",
+			"48": "./images/48x48.png",
+			"128": "./images/128x128.png"
+		}
 	},
 	"background": {
 		"page": "background.html",
