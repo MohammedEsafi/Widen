@@ -3,14 +3,17 @@
 	"name": "Widen — Get More Instagram Followers",
 	"version": "2.0",
 	"description": "Widen helps you follow all of someone's followers, followings, or likers. grow your Instagram today!",
-	"permissions": ["tabs"],
-	"host_permissions": ["https://www.instagram.com/", "*://*/*"],
+	"permissions": ["tabs", "contextMenus"],
 	"action": {
 		"icons": {
-			"16": "./images/icon16.png",
-			"48": "./images/icon48.png",
-			"128": "./images/icon128.png"
-		}
+			"16": "./icons/16.png",
+			"32": "./icons/32.png",
+			"48": "./icons/48.png",
+			"64": "./icons/64.png",
+			"128": "./icons/128.png",
+			"256": "./icons/256.png"
+		},
+		"default_icon": "./icons/128.png"
 	},
 	"background": {
 		"service_worker": "background.js"
