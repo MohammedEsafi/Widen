@@ -5,7 +5,6 @@ if (!window.sleep)
 
 const detection = () => {
 	// Likers
-
 	var Likers = document.querySelector(
 		'body > div.RnEpo.Yx5HN > div > div > div.Igw0E.IwRSH.eGOV_.vwCYk.i0EQd > div'
 	);
@@ -43,7 +42,6 @@ const detection = () => {
 	}
 
 	// Followers
-
 	var Followers = document.querySelector(
 		'body > div.RnEpo.Yx5HN > div > div > div.isgrP'
 	);
@@ -77,7 +75,6 @@ const detection = () => {
 	}
 
 	// Following
-
 	var Following = document.querySelector(
 		'body > div.RnEpo.Yx5HN > div > div > div.isgrP'
 	);

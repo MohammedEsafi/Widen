@@ -16,9 +16,6 @@
 		},
 		"default_icon": "./icons/128.png"
 	},
-	"background": {
-		"service_worker": "background.js"
-	},
 	"content_scripts": [
 		{
 			"matches": ["https://*.instagram.com/*"],
