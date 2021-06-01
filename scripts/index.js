@@ -131,7 +131,13 @@ document.addEventListener('click', () => {
 			image.style.maxHeight = '14px';
 
 			button.appendChild(image);
-			button.addEventListener('click', detection);
+			button.addEventListener('click', () => {
+				try {
+					detection();
+				} catch (error) {
+					console.error(error);
+				}
+			});
 
 			node.innerHTML = node.innerText;
 			node.appendChild(button);
