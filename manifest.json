@@ -1,9 +1,9 @@
 {
 	"manifest_version": 3,
 	"name": "Widen — Get More Instagram Followers",
-	"version": "2.0",
+	"version": "2.1",
 	"description": "Widen helps you follow all of someone's followers, followings, or likers. grow your Instagram today!",
-	"permissions": ["tabs", "contextMenus", "scripting"],
+	"permissions": [],
 	"host_permissions": ["https://www.instagram.com/", "*://*/*"],
 	"action": {
 		"icons": {
